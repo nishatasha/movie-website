@@ -1,4 +1,3 @@
-// utils.js
 'use strict';
 
 // Utility function to filter movies based on search term
