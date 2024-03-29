@@ -1,0 +1,220 @@
+@charset "UTF-8";
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(3, 3, 32);
+  max-height: 150vh;
+}
+
+h1, h2, p, ul, li {
+  color: #fff;
+}
+
+
+/*---------------------------------------------------*/
+/* Search Bar                                        */
+/*---------------------------------------------------*/
+
+.search-dialog {
+  margin-top: 0;
+  width: 400px;
+  overflow-y: visible; /* Add scrollbar when content exceeds max-height */
+  position: absolute;
+  left: 42%;
+  overflow-y: visible;
+  transform: translateX(-42%);
+  transition: opacity 0.3s ease;
+}
+
+.search-dialog.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.search-dialog ul {
+text-align: left;
+background-color: rgb(7, 7, 60);
+border-radius: 5px;
+opacity: 3;
+padding: 0;
+width: 100%;
+z-index: 1;
+}
+
+/* Add hover effect for movie search results */
+.search-dialog ul li:hover {
+  background-color: rgb(71, 71, 198);
+  cursor: pointer;
+}
+
+.content h2{
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.content p{
+  margin-bottom: 50px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content {
+  text-align: center;
+}
+
+#searchForm {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 10px;
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 0;
+}
+
+.create {
+  padding: 10px 30px;
+  background-color: #4f15bc;
+  color: white;
+  border: none;
+  margin-left: 5px;
+  border: 1px solid rgba(0 0 0 / 0.05);
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.create:hover {
+  background-color: rgb(70, 54, 175)
+}
+
+.search-dialog {
+  margin-top: 20px;
+}
+
+/*---------------------------------------------------*/
+/* Movie Details                                       */
+/*---------------------------------------------------*/
+
+.genre {
+  padding: 5px 10px; /* Adjust padding as needed */
+  margin-right: 10px; /* Adjust margin between genres */
+  margin-bottom: 10px;
+  font-size: 17px;
+  text-align: left;
+  border: 1px solid rgba(255 255 255 / 0.05);
+  border-radius: 15px; /* Add rounded corners */
+  background-color:  rgb(15, 15, 80); /* Define background color for all genres */
+}
+
+.selected-movie {
+  margin-top: 10px;
+  font-weight: 300;
+  display: flex;
+  font-size: 20px;
+  align-items: flex-start;
+}
+
+.selected-movie-poster {
+  width: 250px;
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+.selected-movie-poster img {
+  border-radius: 10px;
+}
+
+.selected-movie-details {
+  flex: 1; /* Allow details to expand and fill remaining space */
+  margin-top: 10px;
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  margin-right: 60px;
+}
+
+.selected-movie-details h2 {
+  font-size: 32px;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+
+.year-running-time {
+  display: flex;
+  margin-top: 5px;
+  align-items: baseline;
+
+}
+
+.selected-movie-details .year-running-time .dot {
+  align-self: baseline; /* Align the dot to the baseline */
+  margin-top: 0; /* Remove the margin-top */
+  margin-bottom: 0; /* Remove the margin-bottom */
+  margin-left: 5px; /* Adjust spacing between dot and text */
+  margin-right: 5px;
+}
+
+.year-running-time p {
+  margin-right: 5px; /* Adjust margin as needed */
+}
+
+.dot {
+  width: 6px; /* Adjust size as needed */
+  height: 6px; /* Adjust size as needed */
+  border-radius: 50%;
+  border: 1px solid rgba(255 255 255 / 0.05);
+  background-color: #ff0000; /* Change to your desired color */
+}
+
+
+
+/*---------------------------------------------------*/
+/* Media Queries for responsiveness                  */
+/*---------------------------------------------------*/
+
+/* For screens up to 768px width */
+@media screen and (max-width: 768px) {
+  .center {
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Allow content to determine height */
+  }
+
+  .search-dialog {
+    max-width: 100%; /* Adjust width for smaller screens */
+    left: 0; /* Reset left position */
+    transform: none; /* Reset transform */
+  }
+
+  .selected-movie {
+    flex-direction: column; /* Stack movie details and poster vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .selected-movie-poster {
+    width: 100%; /* Set poster width to full width */
+    margin: 0; /* Remove margins */
+  }
+}
+
+/* For screens up to 480px width */
+@media screen and (max-width: 480px) {
+  .input,
+  .create {
+    width: 100%; /* Set input and button width to full width */
+  }
+}
